@@ -12,13 +12,14 @@ int main()
 	printf("The values when accessed using array of ints: \n");
 	for(i=0; i<5; i++)
 	{
-		printf("At %p: %d\n",&arr[i],arr[i]);
+		printf("At %p: %d\n",(void *)&arr[i],arr[i]);
 	}
 	printf("\n");
 	printf("The values when accessed using array of pointers to int: \n");
 	for(i=0; i<5; i++)
 	{
-		printf("At %p: %d\n",&ptr1[i],*ptr1[i]);
+		printf("At %p: %d\n",(void *)ptr1[i],*ptr1[i]);
+	       //ptr1[i] is a pointer variable storing address of ith element of an array
 	}
 	printf("\n");
 	printf("The values when accessed using pointer to an array: \n");
