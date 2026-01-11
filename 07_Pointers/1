@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int arr[4];
+	printf("Enter 4 elements: ");
+	for(int i=0; i<4; i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	int *p=arr; //address of first element of an array
+	printf("Forward Array Traversal: \n");
+	while(p<(int *)(&arr+1)) 
+	//&arr means address of whole array
+	//&arr+1 means address of one step ahead of entire array
+	//(int *)(&arr+1) type cast converts it to pointer to int 
+	{
+		printf("%p : %d\n",(void *)p,*(p++));
+		//*(p++) moves forward by sizeof(int) to access next element
+	}
+	printf("Backward Array Traversal: \n");	
+	p--;
+//After Forward Array Traversal p moves to one step ahead of entire array address, so decrementing to last element
+	while(p>=arr)
+	{
+		printf("%p : %d\n",(void *)p,*(p--));
+		//*(p--) moves backward by sizeof(int) to access previous element
+	}
+
+	return 0;
+}
+	
+
